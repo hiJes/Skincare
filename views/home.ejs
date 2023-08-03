@@ -1,11 +1,26 @@
 <%- include("header.ejs", {title: "Home"}) %>
+<!-- start navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(127, 238, 255)">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">SKINCARE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
+        <a class="nav-link active" aria-current="page" href="/products">Products</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- end navbar -->
 
-<div class="container">
+<div class="container mt-3">
   <h1>HOME</h1>
   <p>
     <a href="/register" class="btn btn-outline-info">Register</a>
     <a href="/login" class="btn btn-outline-info">Login</a>
-    <a href="/logout" class="btn btn-outline-info">Logout</a>
   </p>
 </div>
 <%- include("header.ejs", {title: "Home"}) %>

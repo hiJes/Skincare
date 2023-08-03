@@ -1,11 +1,11 @@
+const AdminController = require("../controllers/adminController");
 const Controller = require("../controllers/controller");
+const authenticated = require("../middlewares/authenticated");
 const router = require("express").Router();
 
 module.exports = router;
 
 router.get("/", Controller.home); //regis, login, logut
-
-router.get("/user", Controller.user);
 
 router.get("/register", Controller.formRegister);
 router.post("/register", Controller.createUserRegister);
@@ -13,7 +13,7 @@ router.post("/register", Controller.createUserRegister);
 router.get("/login", Controller.formLogin);
 router.post("/login", Controller.createUserLogin);
 
-router.get("/logout", Controller);
+router.get("/logout", Controller.logout);
 
 router.get("/admin/profile", Controller);
 router.post("/admin/profile", Controller);
@@ -25,18 +25,21 @@ router.post("/customer/profile", Controller);
 router.get("/customer/profile/edit", Controller);
 router.post("/customer/profile/edit", Controller);
 
-// Admin Page
-router.get("/products", Controller);
-router.get("/products/add", Controller);
-router.post("/products/add", Controller);
-router.post("/products/emptyList", Controller);
-router.get("/products/stock/:id", Controller); //increment
-router.post("/products/stock/:id", Controller);
-router.get("/products/delete/:id", Controller);
-router.get("/products/:id", Controller);
-router.get("/products/:id/edit", Controller); //ganti semua kecuali stock
-router.post("/products/:id/edit", Controller);
-router.post("/customer-transaction", Controller);
+// Admin Page;
+router.get("/products", authenticated, AdminController.findAllProduct);
+router.get("/products/add", AdminController.addProduct);
+router.post("/products/add", AdminController.saveProduct);
+router.get("/products/emptyList", AdminController.emptyProduct);
+router.get("/products/emptyList/stock/:id", AdminController.reStockProduct);
+router.post("/products/emptyList/stock/:id", AdminController.updateReStockProduct);
+router.get("/products/addStock/:id", AdminController.addStock);
+router.get("/products/delete/:id", AdminController.deleteProduct);
+router.get("/products/:id", AdminController.productDetail);
+router.get("/products/:id/edit", AdminController.editProduct); //ganti semua kecuali stock
+router.post("/products/:id/edit", AdminController.updateProduct);
+router.get("/customers", AdminController.findAllCustomer);
+router.get("/customers/:id", AdminController);
+router.get("/customers/transaction/:id", AdminController.transaction);
 
 // Customer Page
 router.get("/list-products", Controller);

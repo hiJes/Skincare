@@ -1,0 +1,85 @@
+<%- include("header.ejs", {title: "Admin-Empty Product"}) %>
+
+<div class="container">
+  <br><h1>Empty Product</h1>
+  <br>
+  <div class="btn-group">
+    <a href="/products/" class="btn btn-primary">Product</a>
+    <a href="/products/emptyList" class="btn btn-primary">Empty Product</a>
+    <a href="/products/add" class="btn btn-primary">Add Product</a>
+  </div>
+  <br><br>
+  <% if (products.length > 0) { %>
+    <div class="row">
+      <form action="" class="form">
+        <select name="sortBy" class="form-select">
+          <option selected disabled>Sort By Category</option>
+          <% category.forEach(el => { %>
+            <option value="<%= el.id %>"><%= el.name %></option>
+          <% }) %>
+        </select>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+    </div>
+    <br>
+    <table class="table">
+      <tr>
+        <th>No.</th>
+        <th>Nama</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Category</th>
+        <th>Action</th>
+      </tr>
+  
+      <% products.forEach((el, i) => { %>
+       <tr>
+        <td><%= i+1 %></td>
+        <td><%= el.name %></td>
+        <td><%= el.brand %></td>
+        <td><%= formatRupiah(el.price) %></td>
+        <td><%= el.stock %></td>
+        <td><%= el.Category.name %></td>
+        <td class="btn-group">
+          <a href="/products/emptyList/stock/<%= el.id %>" class="btn btn-success">Re-stock</a>
+          <a href="/products/delete/<%= el.id %>" class="btn btn-danger">Delete</a>
+        </td>
+       </tr>
+      <% }) %>
+    </table>
+  <% } else { %>
+    <h2>Empty products not found!</h2>
+  <% } %>
+  
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Re-stock
+</button> -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Re-stock Product</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+</div>
+<%- include("footer.ejs") %>

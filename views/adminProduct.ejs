@@ -1,0 +1,74 @@
+<%- include("header.ejs", {title: "Admin-Product"}) %>
+
+<!-- start navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(127, 238, 255)">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">SKINCARE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
+        <a class="nav-link active" aria-current="page" href="/products">Products</a>
+        <a href="/logout" class="btn btn-outline-info">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- end navbar -->
+
+<div class="container">
+  <br />
+  <h1>Product</h1>
+  <br />
+  <div class="btn-group">
+    <a href="/customers" class="btn btn-primary">Customer</a>
+    <a href="/products" class="btn btn-primary">Product</a>
+    <a href="/products/emptyList" class="btn btn-primary">Empty Product</a>
+    <a href="/products/add" class="btn btn-primary">Add Product</a>
+  </div>
+
+  <br /><br />
+  <div class="row">
+    <form action="/products" method="get" class="form">
+      <select name="sortBy" class="form-select">
+        <option selected disabled>Sort By Category</option>
+        <% category.forEach(el => { %>
+        <option value="<%= el.id %>"><%= el.name %></option>
+        <% }) %>
+      </select>
+      <br />
+      <input type="submit" class="btn btn-primary" value="Submit" />
+    </form>
+  </div>
+  <br />
+  <table class="table">
+    <tr>
+      <th>No.</th>
+      <th>Nama</th>
+      <th>Brand</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Category</th>
+      <th>Action</th>
+    </tr>
+
+    <% products.forEach((el, i) => { %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= el.name %></td>
+      <td><%= el.brand.toUpperCase() %></td>
+      <td><%= formatRupiah(el.price) %></td>
+      <td><%= el.stock %></td>
+      <td><%= el.Category.name %></td>
+      <td class="btn-group">
+        <a href="/products/<%= el.id %>" class="btn btn-primary">See Detail</a>
+        <a href="/products/addStock/<%= el.id %>" class="btn btn-success">+ stock</a>
+        <a href="/products/delete/<%= el.id %>" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    <% }) %>
+  </table>
+</div>
+<%- include("footer.ejs") %>

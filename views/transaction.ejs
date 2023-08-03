@@ -1,0 +1,38 @@
+<%- include("header.ejs", {title: "Admin-Customer Transaction"}) %>
+
+<div class="container">
+  <br><h1>Customer Transaction</h1>
+  <br>
+  <div class="btn-group">
+    <a href="/customers" class="btn btn-primary">Customer</a>
+    <a href="/products" class="btn btn-primary">Product</a>
+  </div>
+  <br><br>
+  <% if (customers.length === 0) { %>
+    <h2>Customer not found!</h2>
+  <% } else { %>
+    <table class="table">
+      <tr>
+        <th>No.</th>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Action</th>
+      </tr>
+  
+      <% customers.forEach((el, i) => { %>
+       <tr>
+        <td><%= i+1 %></td>
+        <td><%= el.id %></td>
+        <td><%= el.userName %></td>
+        <td class="btn-group">
+          <a href="/customers/<%= el.id %><%= el.id %>" class="btn btn-primary">Profile</a>
+          <a href="/customers/transaction/<%= el.id %>" class="btn btn-success">Transaction</a>
+        </td>
+       </tr>
+      <% }) %>
+    </table>
+  <% } %>
+
+
+</div>
+<%- include("footer.ejs") %>
