@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -15,15 +16,47 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init(
     {
-      userName: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
-      role: DataTypes.BOOLEAN,
+      userName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: { msg: "Email is required!" },
+          notNull: { msg: "Email is required!" },
+        },
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          notEmpty: { msg: "Email is required!" },
+          notNull: { msg: "Email is required!" },
+          isEmail: { msg: "Invalid email!" },
+        },
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: { msg: "Password is required!" },
+          notNull: { msg: "Password is required!" },
+          len: {
+            args: [2, 15],
+            msg: "Must be 8 - 15 characters",
+          },
+        },
+      },
+      role: DataTypes.STRING,
     },
     {
       sequelize,
       modelName: "User",
     }
   );
+
+  User.beforeSave((user) => {
+    const salt = bcrypt.genSaltSync(10);
+    user.password = bcrypt.hashSync(user.password, salt);
+  });
   return User;
 };

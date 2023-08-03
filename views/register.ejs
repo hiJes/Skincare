@@ -1,0 +1,31 @@
+<%- include("header.ejs", {title: "Home"}) %>
+
+<div class="container text-center mb-5">
+  <h1>Register</h1>
+</div>
+
+<div class="container col-2">
+  <form action="/register" method="post">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="text" name="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1" />
+    </div>
+    <div class="mb-3">
+      <input type="radio" name="role" id="exampleCheck1" value="User" />
+      <label class="form-check-label" for="exampleCheck1">User</label>
+      <input type="radio" name="role" id="exampleCheck2" value="Admin" />
+      <label class="form-check-label" for="exampleCheck2">Admin</label>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Register</button>
+  </form>
+</div>
+
+<%- include("header.ejs", {title: "Home"}) %>
