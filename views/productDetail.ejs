@@ -1,0 +1,48 @@
+<%- include("header.ejs", {title: "Home"}) %>
+  <style>
+    img {
+      height: 40%;
+      width: 40%;
+    }
+    .one {
+      white-space: pre-line;
+    }
+    .container {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+
+<%let {id, name, brand, description, price, photo, stock, Category} = product%>
+<br>
+<div class="container d-grid gap-2 col-8 mx-auto">
+  <h1>Product Detail</h1>
+  <a href="/products"><button class="btn btn-outline-primary" >Back to List Product</button></a>
+  <div class="container">
+    <img src="<%= photo %>" alt="">
+    <div style="padding-left: 20px;">
+      <h2><%= name %></h2>
+      <h3><%= brand.toUpperCase() %></h3> <br>
+      <table>
+        <tr>
+          <th>Category</th><td>:</td><td> <%= Category.name %></td>
+        </tr>
+        <tr>
+          <th>Price</th><td>:</td><td> <%= formatRupiah(price) %></td>
+        </tr>
+        <tr>
+          <th>Stock</th><td>:</td><td><%= stock %></td>
+        </tr>
+        </table>
+        <br>
+      <a href="/products/<%= id %>/edit"><button  class="btn btn-primary">Edit</button></a>
+    </div>
+  </div> 
+
+  <div class="one">
+    <div style="font-weight: bold;">Description :</div>
+    <%= description %>
+  </div>
+</div>
+<%- include("footer.ejs") %>

@@ -1,0 +1,33 @@
+<%- include("header.ejs", {title: "Admin-Re-stock Product"}) %>
+
+<div class="container  col-6">
+  <br><h1>Re-stock Product</h1>
+  <br>
+  <% if (errors) { %>
+    <% errors = errors.split(",") %>
+    <% errors.forEach(e => { %>
+      <div class="alert alert-danger" role="alert">
+        <%= e %>
+      </div>
+    <% }) %>
+  <% } %>  
+  <br>
+  <div class="form">
+    <form action="/products/emptyList/stock/<%= product.id %>" method="post" class="form">
+      
+      <div class="mb-3">
+        <label class="form-label">Stock</label>
+        <input type="number" class="form-control" name="stock">
+      </div>
+
+
+      <div>
+        <input type="submit" class="btn btn-primary" value="Submit">
+        <a href="/products/emptyList" class="btn btn-danger me-1">Cancel</a>
+      </div>
+    </form>
+  </div>
+  <br>
+  
+</div>
+<%- include("footer.ejs") %>
