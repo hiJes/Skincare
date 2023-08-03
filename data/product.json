@@ -1,9 +1,73 @@
 [
   {
     "name": "Green Tea Latte Face Mask",
-    "brand":"Emina",
+    "brand": "Emina",
     "description": "EMINA Green Tea Latte Face Mask merupakan masker wajah dengan Kombinasi dari ekstrak susu dan teh hijau membantu memberikan sensasi kulit yang lebih halus, elastis dan segar.Teksturnya yang seperti gel akan memberikan ekstra kelembaban pada wajah saat di gunakan ke wajah. Kandungan green tea lattenya pun membuat harum dari masker ini akan merelax saat pada penggunaan masker.",
-    "price":25000,
+    "price": 25000,
     "photo": "https://s3-ap-southeast-1.amazonaws.com/img-sociolla/img/p/8/6/1/6/8616-large_default.jpg"
+  },
+  {
+    "name": "Multi Targeted All Natural Adoring Face Oil",
+    "brand": "BHUMI",
+    "description": "9 resep sempurna untuk wajah mempesona. Dimulai dengan Turmeric, pencera wajah yang mengagumkan. Lavender, ratu dari essential oil dengan segudang manfaat. Melembapkan dan menyegarkan kulit sehingga wajah tampak lebih muda dan bersinar. Rosehip dan Clary Sage adalah sumber alami fatty acid dan collagen untuk meregenerasi sel. Tea Tree dan Patchouli dapat membantu mencegah timbulnya jerawat dan noda hitam, sekaligus menjadi pelembap wajah yang mengagumkan. Frankincense oil efektif untuk mengencangkan dan menghilangkan noda hitam. Geranium adalah perawatan tepat untuk kulit sensitif dan kering. Lemongrass oil adalah formula tepat untuk tipe kulit wajah berminyak. Benar-benar cara yang sempu.",
+    "price": 155480,
+    "photo": "https://s3-ap-southeast-1.amazonaws.com/img-sociolla/img/p/3/4/3/4/6/34346-large_default.jpg",
+    "CategoryId": 1
+  },
+  {
+    "name": "Let's Carrot Multi Oil",
+    "brand": "BENTON",
+    "description": "Facial Oil  multifungsi dengan kandungan utama wortel yang berasal dari Jerman ini kaya akan Carotene dan minyak botani untuk memberikan kelembapan, menjaga elastisitas, kekenyalan serta menutrisi kulit. Benton Let's Carrot Multi-Oil terbuat dari 99% bahan natural sehingga aman digunakan oleh semua jenis kulit. Teksturnya ringan dan tidak memberikan kesan berminyak pada kulit.  Produk ini dapat digunakan setiap hari, dari area kepala hingga kaki.",
+    "price": 174000,
+    "photo": "https://images.soco.id/image-0-1601884013573",
+    "CategoryId": 1
+  },
+  {
+    "name": "Jojoba 100 Oil",
+    "brand": "ESSENHERB",
+    "description": "Minyak esensial jojoba untuk berbagai kegunaan dari kepala hingga ujung kaki. Minyak jojoba telah diekstraksi dengan metode pemerasan dingin murni untuk menjaga nutrisi yang memberikan kelembapan dan kilau langsung pada wajah, rambut, dan tubuh. Berkonsentrasi tinggi (murni) sehingga untuk skincare harus digunakan dengan cara dicampurkan (dillute) dengan air, atau diteteskan 1-2 tetes pada skincare lainnya (cream / toner).",
+    "price": 102900,
+    "photo": "https://images.soco.id/image-0-1601618334693",
+    "CategoryId": 1
+  },
+  {
+    "name": "Sakura Cleanser",
+    "brand": "GARNIER",
+    "description": "Sakura Cleanser merupakan Sabun cuci muka yang diperkaya dengan Ekstrak Sakura. Sakura Cleanser Foam membersihkan dengan lembut dan menyeluruh, serta membantu mencerahkan wajah kusam. Wajah menjadi tampak segar dan cerah merona alami dalam 7 hari. Formulanya lembut dan sesuai untuk kulit sensitif",
+    "price": 19975,
+    "photo": "https://images.soco.id/d107b49c-c79a-457a-ac70-aed6043df9ec-.jpg",
+    "CategoryId": 2
+  },
+  {
+    "name": "Salicylic Acid Daily Gentle Cleanser",
+    "brand": "COSRX",
+    "description": "Pembersih wajah berbentuk busa dengan kandungan Salicylic Acid yang berfungsi melawan jerawat dan mengurangi kelebihan minyak berlebih diwajah. Cocok untuk kulit berjerawat, acne prone, kulit sensitif dan kombinasi karena menggunakan Botanical Ingredients (bahan alami). Mengandung tea tree oil yang juga berfungsi merawat kulit yang cenderung berjerawat Produk ini mampu mengeksfoliasi kulit mati serta merawat kulit wajah agar tetap kencang tanpa terasa kering.",
+    "price": 116250,
+    "photo": "https://images.soco.id/70456028743-1582623953369.png",
+    "CategoryId": 2
+  },
+  {
+    "name": "Facial Foam Zaitun",
+    "brand": "HERBORIST",
+    "description": "Pembersih wajah untuk kulit normal dan kering. Sabun wajah herborist dengan formulasi lembut dan mengandung minyak zaitun sebagai anti oksidan alami yang membersihkan sekaligus menjaga kehalusan dan kelembutan kulit wajah.",
+    "price": 28737,
+    "photo": "https://s3-ap-southeast-1.amazonaws.com/img-sociolla/img/p/3/5/3/6/7/35367-large_default.jpg",
+    "CategoryId": 2
+  },
+  {
+    "name": "Sun Battle SPF 30 PA+++",
+    "brand": "EMINA",
+    "description": "Emina Sun Protection dengan SPF 30 dan PA +++ memiliki tekstur ringan membantu melindungi kulitmu dari sinar UV di hari yang aktif. Diperkaya dengan Aloe Vera extract dan emolient untuk memberikan kelembaban ekstra pada kulit.",
+    "price": 27625,
+    "photo": "https://images.soco.id/74aa43b8-fddf-4980-bd41-03d5702c1dd6-image-0-1624258660370",
+    "CategoryId": 3
+  },
+  {
+    "name": "White Lucent Day Emulsion SPF50",
+    "brand": "SHISEIDO",
+    "description": "Dengan kandungan Bright Complex dari Bunga Sakura untuk membantu menghilangkan noda hitam dan komedo pada wajah. Memperbaiki terkstur kulit dan mengembalikan kehalusannya. Menghidrasi kulit selama 8 jam & melindungi kulit dari debu dan polusi. Menjaga kulit dari bahaya sinar UV A dan UV B.",
+    "price": 1000000,
+    "photo": "Dengan kandungan Bright Complex dari Bunga Sakura untuk membantu menghilangkan noda hitam dan komedo pada wajah. Memperbaiki terkstur kulit dan mengembalikan kehalusannya. Menghidrasi kulit selama 8 jam & melindungi kulit dari debu dan polusi. Menjaga kulit dari bahaya sinar UV A dan UV B.",
+    "CategoryId": 3
   }
 ]
