@@ -1,0 +1,36 @@
+<%- include("header.ejs", {title: "Home"}) %>
+
+<div class="container text-center mb-4">
+  <h1>Profile User</h1>
+</div>
+
+<div class="container col-2">
+  <form action="/login" method="post">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Gender</label>
+      <input type="text" name="gender" class="form-control" id="exampleInputPassword1" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Addres</label>
+      <textarea name="addres" id="exampleInputPassword1" cols="30" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Date of Birth</label>
+      <input type="date" name="dateOfBirth" class="form-control" id="exampleInputPassword1" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Telephone</label>
+      <input type="text" name="telephone" class="form-control" id="exampleInputPassword1" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Profile Picture</label>
+      <input type="text" name="profilePicture" class="form-control" id="exampleInputPassword1" />
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
+  </form>
+</div>
+<%- include("header.ejs", {title: "Home"}) %>

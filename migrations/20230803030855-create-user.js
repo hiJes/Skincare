@@ -14,12 +14,15 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
       },
       password: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       role: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
