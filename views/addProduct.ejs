@@ -1,22 +1,27 @@
 <%- include("header.ejs", {title: "Admin-Add Product"}) %>
 
-<div class="container col-6">
-  <br />
-  <h1>Add Product</h1>
-  <% if (errors) { %> <% errors = errors.split(",") %> <% errors.forEach(e => { %>
-  <div class="alert alert-danger" role="alert"><%= e %></div>
-  <% }) %> <% } %>
-  <br />
+<div class="container  col-6">
+  <br><h1>Add Product</h1>
+  <% if (errors) { %>
+    <% errors = errors.split(",") %>
+    <% errors.forEach(e => { %>
+      <div class="alert alert-danger" role="alert">
+        <%= e %>
+      </div>
+    <% }) %>
+  <% } %>  
+  <br>
   <div class="form">
     <form action="/products/add" method="post" class="form">
-      <div class="mb-3">
-        <label class="form-label">Name</label>
-        <input type="text" class="form-control" name="name" />
-      </div>
 
       <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="name">
+      </div>
+  
+      <div class="mb-3">
         <label class="form-label">Brand</label>
-        <input type="text" class="form-control" name="brand" />
+        <input type="text" class="form-control" name="brand">
       </div>
 
       <div class="mb-3">
@@ -26,34 +31,35 @@
 
       <div class="mb-3">
         <label class="form-label">Price</label>
-        <input type="number" class="form-control" name="price" />
+        <input type="number" class="form-control" name="price">
       </div>
 
       <div class="mb-3">
         <label class="form-label">Photo</label>
-        <input type="text" class="form-control" name="photo" placeholder="URL" />
+        <input type="text" class="form-control" name="photo" placeholder="URL">
       </div>
 
       <div class="mb-3">
         <label class="form-label">Stock</label>
-        <input type="number" class="form-control" name="stock" />
+        <input type="number" class="form-control" name="stock">
       </div>
 
       <label class="form-label">Category</label>
       <select name="CategoryId" class="form-select">
         <option selected disabled>-- Select --</option>
         <% category.forEach(el => { %>
-        <option value="<%= el.id %>"><%= el.name %></option>
+          <option value="<%= el.id %>"><%= el.name %></option>
         <% }) %>
       </select>
-      <br />
+      <br>
 
       <div>
-        <input type="submit" class="btn btn-primary" value="Submit" />
+        <input type="submit" class="btn btn-primary" value="Submit">
         <a href="/products" class="btn btn-danger me-1">Cancel</a>
       </div>
     </form>
   </div>
-  <br />
+  <br>
 </div>
 <%- include("footer.ejs") %>
+

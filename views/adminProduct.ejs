@@ -19,30 +19,28 @@
 <!-- end navbar -->
 
 <div class="container">
-  <br />
-  <h1>Product</h1>
-  <br />
+  <br><h1>Product</h1>
+  <br>
   <div class="btn-group">
     <a href="/customers" class="btn btn-primary">Customer</a>
     <a href="/products" class="btn btn-primary">Product</a>
     <a href="/products/emptyList" class="btn btn-primary">Empty Product</a>
     <a href="/products/add" class="btn btn-primary">Add Product</a>
   </div>
-
-  <br /><br />
+  <br><br>
   <div class="row">
     <form action="/products" method="get" class="form">
       <select name="sortBy" class="form-select">
         <option selected disabled>Sort By Category</option>
         <% category.forEach(el => { %>
-        <option value="<%= el.id %>"><%= el.name %></option>
+          <option value="<%= el.id %>"><%= el.name %></option>
         <% }) %>
       </select>
-      <br />
-      <input type="submit" class="btn btn-primary" value="Submit" />
+      <br>
+      <input type="submit" class="btn btn-primary" value="Submit">
     </form>
   </div>
-  <br />
+  <br>
   <table class="table">
     <tr>
       <th>No.</th>
@@ -55,7 +53,7 @@
     </tr>
 
     <% products.forEach((el, i) => { %>
-    <tr>
+     <tr>
       <td><%= i+1 %></td>
       <td><%= el.name %></td>
       <td><%= el.brand.toUpperCase() %></td>

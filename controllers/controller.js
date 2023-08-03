@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, ProfileUser } = require("../models");
 const bcrypt = require("bcrypt");
 const { ValidationError } = require("sequelize");
 
@@ -44,15 +44,25 @@ class Controller {
         const isValidUser = bcrypt.compareSync(password, user.password);
         if (!isValidUser) throw "Wrong password!";
         req.session.userId = user.id;
-        if (role === "Customer") {
-          res.redirect("/list-products");
-        } else if (role === "Admin") {
-          res.redirect("/products");
+//         if (role === "Customer") {
+//           res.redirect("/list-products");
+//         } else if (role === "Admin") {
+//           res.redirect("/products");
+//         }
+        if (role !== user.dataValues.role) throw "Wrong role!"
+        let id = user.dataValues.id
+        return User.findByPk (id,{include:ProfileUser})
+      })
+      .then((user) => {
+        let profile = user.dataValues.ProfileUser
+        let role = user.dataValues.role
+        if (!profile){
+          res.render ("profileUser.ejs")
         }
       })
       .catch((err) => {
-        console.log(err);
         res.send(err);
+        // console.log(err);
       });
   }
 

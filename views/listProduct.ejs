@@ -1,0 +1,56 @@
+<%- include("header.ejs", {title: "List Product"}) %>
+
+<div class="container">
+  <br><h1>Product</h1>
+  <br>
+  <div class="btn-group">
+    <a href="/list-products" class="btn btn-primary">Product</a>
+    <a href="/cart" class="btn btn-primary">Cart</a>
+  </div>
+  <br><br>
+  <div class="row">
+    <form action="/list-products" method="get" class="form">
+      <select name="sortBy" class="form-select">
+        <option selected disabled>Sort By Category</option>
+        <% category.forEach(el => { %>
+          <option value="<%= el.id %>"><%= el.name %></option>
+        <% }) %>
+      </select>
+      <br>
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+  </div>
+  <br>
+</div>
+
+<!-- cards -->
+<div class="container col-12 bg-primary-subtle">
+  <div class="row justify-content-center">
+    <% products.forEach(el => { %>
+      <div class="card mx-1 my-2 p-0 col-2" >
+        <div style="height: 200px; width: 100%">
+          <img src="<%= el.photo %>" class="card-img-top border rounded"  >
+        </div>
+        <div class="card-body">
+          <h6 class="card-title text-center"><%= el.brand.toUpperCase() %></h6>
+          <div style="height: 50px; font-size:15px;">
+            <% if (el.name.length <= 32) { %>
+              <p class="card-text"><%= el.name%></p>
+            <% } else { %>
+              <p class="card-text"><%= el.name.slice(0, 32);%>...</p>
+            <% } %>
+          </div>
+          <p style="font-size:15px; font-weight:bold;"><%= formatRupiah(el.price) %></p>
+          
+          <div class="text-center position-sticky">
+            <a href="/list-products/buy/<%= el.id %> " class="btn btn-primary" style="width: 80px">Buy</a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>   
+</div>
+<!-- end -->
+
+
+<%- include("footer.ejs") %>
