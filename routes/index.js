@@ -43,7 +43,7 @@ router.get("/customers/transaction/:id", AdminController.transaction);
 router.get("/customers/transaction/:id/product/:transactionId", AdminController.productTransaction);
 
 // Customer Page
-router.get('/list-products', CustomerController.findAllProduct)
+router.get('/list-products', authenticated, CustomerController.findAllProduct)
 router.get('/list-products/buy/:id', CustomerController)//update barang ke keranjang
 router.get('/cart', CustomerController)
 router.get('/cart/checkout', CustomerController) //masuk ke table transaction
