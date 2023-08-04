@@ -4,8 +4,9 @@ const {Op} = require ("sequelize")
 
 class AdminController {
   static findAllProduct (req, res) {
+    let {sortBy} = req.query
     let products
-    Product.findAll({
+    let option = {
       include:Category,
       where: {
         stock: {
@@ -13,7 +14,13 @@ class AdminController {
         }
       },
       order : [['name', 'asc']]
-    })
+    }
+
+    if (sortBy){
+      Product.getProductByCategory (option, sortBy)
+    }
+
+    Product.findAll(option)
       .then ((data)=>{
         products = data
         return Category.findAll() 
@@ -204,7 +211,7 @@ class AdminController {
   static findAllCustomer (req, res) {
     User.findAll({
       where: {
-        role: false//ganti jadi Customer
+        role:"Customer"
       }
     })
     .then ((customers)=>{
@@ -214,20 +221,45 @@ class AdminController {
       // console.log(err);
       res.send(err)
     })
-  }//ganti dari boolean jadi customer
+  }
   static transaction (req, res) {
     let {id} = req.params
     // User.findByPk(id, , {include:Transaction})
-    Transaction.findAll()
+    Transaction.findAll({include: Product})
     .then ((customers)=>{
-      // res.render ("transaction.ejs", {customers})
-      res.send (customers)
-    })
+      res.render ("transaction.ejs", {customers})
+      // console.log(customers);
+      // res.send(customers)
+    }) 
     .catch ((err) => {
       // console.log(err);
-      res.send(err)
+      res.send(err) 
     })
-  }//ganti dari boolean jadi customer
+  }
+  static productTransaction (req, res) {
+    let {id, transactionId} = req.params
+    Transaction.findByPk(transactionId, {include:Product})
+    .then ((customers)=>{
+      res.render ("transactionProduct.ejs", {customers})
+      // console.log(customers);
+      // res.send(customers)
+    }) 
+    .catch ((err) => {
+      // console.log(err);
+      res.send(err) 
+    })
+
+  }
+  static customerProfile (req, res) {
+    let {id} = req.params
+    User.findByPk(id, {include:ProfileUser})
+      .then((customer) => {
+        res.render("customerProfile.ejs",{customer})
+      })
+      .catch((err) => {
+        res.send(err)
+      })
+  }
 }
 
 module.exports = AdminController

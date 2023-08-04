@@ -4,8 +4,9 @@ const {Op} = require ("sequelize")
 
 class CustomerController {
   static findAllProduct (req, res) {
+    let {sortBy} = req.query
     let products
-    Product.findAll({
+    let option = {
       include:Category,
       where: {
         stock: {
@@ -13,7 +14,13 @@ class CustomerController {
         }
       },
       order : [['name', 'asc']]
-    })
+    }
+
+    if (sortBy){
+      Product.getProductByCategory (option, sortBy)
+    }
+
+    Product.findAll(option)
       .then ((data)=>{
         products = data
         return Category.findAll() 

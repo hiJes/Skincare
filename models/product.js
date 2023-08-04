@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
       Product.belongsTo(models.Category, { foreignKey: "CategoryId" });
       Product.belongsToMany(models.Transaction,  { through: models.TransactionProduct });
     }
+
+    static getProductByCategory (option, sortBy) {
+      option.where = {CategoryId : `${sortBy}`}
+    }
   }
   Product.init(
     {

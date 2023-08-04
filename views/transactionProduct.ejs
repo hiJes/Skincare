@@ -1,0 +1,44 @@
+<%- include("header.ejs", {title: "Admin-Product per-Transaction"}) %>
+
+<div class="container">
+  <br><h1>Product List</h1>
+  <br>
+  <div class="btn-group">
+    <a href="/customers" class="btn btn-primary">Customer</a>
+    <a href="/products" class="btn btn-primary">Product</a>
+    <a href="/customers/transaction/<%= customers.UserId %>" class="btn btn-primary">Back to List Transaction</a>
+  </div>
+  <br><br>
+  <% if (customers.Products.length === 0) { %>
+    <h2>Products not found!</h2>
+  <% } else { %>
+    <h2>Transaction Code : <%= customers.name %></h2><br>
+    <table class="table">
+      <THead>
+        <tr>
+          <th>No.</th>
+          <th>ID</th>
+          <th>Brand</th>
+          <th>Name</th>
+          <!-- <th>Action</th> -->
+        </tr>
+      </THead>
+      <Tbody>
+      <% customers.Products.forEach((el, i) => { %>
+        <tr>
+         <td><%= i+1 %></td>
+         <td><%= el.id %></td>
+         <td><%= el.brand %></td>
+         <td><%= el.name %></td>
+         <!-- <td class="btn-group">
+           <a href="" class="btn btn-success">List Product</a>
+         </td> -->
+        </tr>
+       <% }) %>
+      </Tbody>
+    </table>
+  <% } %>
+
+
+</div>
+<%- include("footer.ejs") %>

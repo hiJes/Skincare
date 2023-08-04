@@ -17,16 +17,16 @@ router.post("/login", Controller.createUserLogin);
 
 router.get("/logout", Controller.logout);
 
-router.get('/admin/profile', Controller)
-router.get('/admin/profile/edit', Controller)
-router.post('/admin/profile/edit', Controller)
+router.get('/user/:id', Controller.formProfile)
+router.post('/user/:id', Controller.createProfile)
+router.get('/user/:id/admin/profile', Controller.showProfileAdmin)
 
-router.get('/customer/profile', Controller)
-router.get('/customer/profile/edit', Controller)
-router.post('/customer/profile/edit', Controller)
+router.get('/user/:id/customer/profile', Controller.showProfileCustomer)
+
+
 
 // Admin Page;
-router.get("/products", authenticated, AdminController.findAllProduct);
+router.get("/products", authenticated,AdminController.findAllProduct);
 router.get("/products/add", AdminController.addProduct);
 router.post("/products/add", AdminController.saveProduct);
 router.get("/products/emptyList", AdminController.emptyProduct);
@@ -38,8 +38,9 @@ router.get("/products/:id", AdminController.productDetail);
 router.get("/products/:id/edit", AdminController.editProduct); //ganti semua kecuali stock
 router.post("/products/:id/edit", AdminController.updateProduct);
 router.get("/customers", AdminController.findAllCustomer);
-router.get("/customers/:id", AdminController);
+router.get("/customers/:id", AdminController.customerProfile);
 router.get("/customers/transaction/:id", AdminController.transaction);
+router.get("/customers/transaction/:id/product/:transactionId", AdminController.productTransaction);
 
 // Customer Page
 router.get('/list-products', CustomerController.findAllProduct)

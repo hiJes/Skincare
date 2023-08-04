@@ -12,24 +12,26 @@
     <h2>Customer not found!</h2>
   <% } else { %>
     <table class="table">
-      <tr>
-        <th>No.</th>
-        <th>ID</th>
-        <th>Username</th>
-        <th>Action</th>
-      </tr>
-  
+      <THead>
+        <tr>
+          <th>No.</th>
+          <th>ID</th>
+          <th>Transaction Code</th>
+          <th>Action</th>
+        </tr>
+      </THead>
+      <Tbody>
       <% customers.forEach((el, i) => { %>
-       <tr>
-        <td><%= i+1 %></td>
-        <td><%= el.id %></td>
-        <td><%= el.userName %></td>
-        <td class="btn-group">
-          <a href="/customers/<%= el.id %><%= el.id %>" class="btn btn-primary">Profile</a>
-          <a href="/customers/transaction/<%= el.id %>" class="btn btn-success">Transaction</a>
-        </td>
-       </tr>
-      <% }) %>
+        <tr>
+         <td><%= i+1 %></td>
+         <td><%= el.id %></td>
+         <td><%= el.name %></td>
+         <td class="btn-group">
+           <a href="/customers/transaction/<%= el.UserId %>/product/<%= el.id %>" class="btn btn-success">List Product</a>
+         </td>
+        </tr>
+       <% }) %>
+      </Tbody>
     </table>
   <% } %>
 

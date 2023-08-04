@@ -1,0 +1,48 @@
+<%- include("header.ejs", {title: "Customer Profile"}) %>
+  <style>
+    img {
+      height: 40%;
+      width: 40%;
+    }
+    .one {
+      white-space: pre-line;
+    }
+    .container {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+
+<%let {id, userName, ProfileUser} = customer%>
+<%let {name, gender, address, dateOfBirth, telephone, profilePicture} = ProfileUser%>
+<br>
+<div class="container d-grid gap-2 col-8 mx-auto">
+  <h1>Customer Profile</h1>
+  <a href="/list-products"><button class="btn btn-outline-primary" >Back to Products</button></a>
+  <div class="container">
+    <img src="<%= profilePicture %>" alt="">
+    <div style="padding-left: 20px;">
+      <h2>Username: <%= userName %></h2>
+      <h3>Name    :<%= name %></h3> <br>
+      <table>
+        <tr>
+          <th>Gender</th><td>:</td><td> <%= gender %></td>
+        </tr>
+        <tr>
+          <th>Date Of Birth</th><td>:</td><td> <%= ProfileUser.formatDate() %></td>
+        </tr>
+        <tr>
+          <th>Telephone</th><td>:</td><td><%= telephone %></td>
+        </tr>
+        <tr>
+          <th>Address</th><td>:</td><td><%= address %></td>
+        </tr>
+        </table>
+        <br>
+    </div>
+  </div> 
+
+  
+</div>
+<%- include("footer.ejs") %>

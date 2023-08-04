@@ -1,5 +1,24 @@
 <%- include("header.ejs", {title: "List Product"}) %>
 
+<!-- start navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(127, 238, 255)">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">SKINCAREeeeeeee</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
+        <a class="nav-link active" aria-current="page" href="/list-products">Products</a>
+        <a href="/logout" class="btn btn-outline-info">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- end navbar -->
+
+
 <div class="container">
   <br><h1>Product</h1>
   <br>
@@ -7,7 +26,7 @@
     <a href="/list-products" class="btn btn-primary">Product</a>
     <a href="/cart" class="btn btn-primary">Cart</a>
   </div>
-  <br><br>
+  <br><br> 
   <div class="row">
     <form action="/list-products" method="get" class="form">
       <select name="sortBy" class="form-select">
